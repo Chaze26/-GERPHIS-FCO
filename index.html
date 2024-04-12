@@ -40,559 +40,395 @@
 </head>
 
 <style>
-    .navbar {
+    :root {
+        --color1: #00008B;
+        --color2: #FF0000;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        background: linear-gradient(40deg, var(--color1), var(--color2));
+        /* Change this as needed */
+        z-index: 1000;
+        /* Ensure dropdown appears above other content */
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        /* Smooth transition */
+    }
+
+    .dropdown:hover .dropdown-menu {
+        opacity: 1;
+    }
+
+    .dropdown-menu a {
+        color: #ffffff;
+        /* Default text color */
+        transition: color 0.3s ease;
+        /* Smooth transition */
+    }
+
+    .dropdown-menu a:hover {
+        color: black;
+        /* Change text color on hover */
+    }
+
+    .navbar-hidden {
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .navbar-visible {
+        transform: translateY(0);
+        transition: transform 0.3s ease;
+    }
+
+    .navbar-scrolled {
         position: fixed;
-        /* Fixed positioning */
+        top: 0;
         width: 100%;
-        /* Take the full width of the viewport */
-        z-index: 100;
-        /* Ensure it's on top of other elements */
+        z-index: 1000;
     }
 </style>
 
 <body>
     <!-- Header -->
-
-    <nav class="navbar navbar-expand-lg navbar-dark"
-        style="background: linear-gradient(40deg,var(--color1),var(--color2))">
-        <div class="container">
-            <a class="navbar-brand" href="https://library.livecanvas.com/sections/"> <img
-                    src="https://getbootstrap.com/docs/4.4/assets/brand/bootstrap-solid.svg" width="30" height="30"
-                    class="d-inline-block align-top img-fluid" alt=""> <span editable="inline">[GERPHIS] FCO</span> </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar1"
-                aria-controls="myNavbar1" aria-expanded="false" aria-label="Toggle navigation"> <span
-                    class="navbar-toggler-icon"></span> </button>
-            <div class="collapse navbar-collapse" id="myNavbar1">
-                <div lc-helper="shortcode" class="live-shortcode me-auto"> <!--  lc_nav_menu -->
-                    <ul id="menu-menu-1" class="navbar-nav">
-                        <li class="menu-item menu-item-type-custom menu-item-object-custom nav-item nav-item-32739"><a
-                                href="/index-bs.html" class="nav-link ">Home</a>
-                        </li>
-                        <li
-                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home nav-item nav-item-32738">
-                            <a href="https://library.livecanvas.com/sections/" class="nav-link ">Module 1</a>
-                        </li>
-                        <li
-                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home nav-item nav-item-32738">
-                            <a href="https://library.livecanvas.com/sections/" class="nav-link ">Module 2</a>
-                        </li>
-                        <li
-                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home nav-item nav-item-32738">
-                            <a href="https://library.livecanvas.com/sections/" class="nav-link ">Module 3</a>
-                        </li>
-                        <li
-                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home nav-item nav-item-32738">
-                            <a href="https://library.livecanvas.com/sections/" class="nav-link ">Module 4</a>
-                        </li>
-                        <li
-                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home nav-item nav-item-32738">
-                            <a href="https://library.livecanvas.com/sections/" class="nav-link ">About Us</a>
-                        </li>
-                    </ul> <!-- /lc_nav_menu -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-hidden navbar-scrolled"
+            style="background: linear-gradient(40deg,var(--color1),var(--color2))">
+            <div class="container">
+                <a class="navbar-brand" href="https://library.livecanvas.com/sections/"> <img src="/assets/logo.png"
+                        width="30" height="30" class="d-inline-block align-top img-fluid" alt=""> <span
+                        editable="inline">[GERPHIS] FCO</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar1"
+                    aria-controls="myNavbar1" aria-expanded="false" aria-label="Toggle navigation"> <span
+                        class="navbar-toggler-icon"></span> </button>
+                <div class="collapse navbar-collapse" id="myNavbar1">
+                    <div lc-helper="shortcode" class="live-shortcode me-auto"> <!--  lc_nav_menu -->
+                        <ul id="menu-menu-1" class="navbar-nav">
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom nav-item nav-item-32739">
+                                <a href="/index.html" class="nav-link ">Home</a>
+                            </li>
+                            <li
+                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home nav-item nav-item-32738">
+                                <a href="/mod1.html" class="nav-link ">Module 1</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="/mod2.html" id="navbarDropdown" role="button"
+                                    aria-expanded="false">
+                                    Module 2
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="/mod2_1.html">Visayas Tattooing</a></li>
+                                    <li><a class="dropdown-item" href="/mod2_2.html">Kalinga Tattooing</a></li>
+                                    <!-- Add more pages as needed -->
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    Module 3
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="/mod3_1.html">Spanish Colonization</a></li>
+                                    <li><a class="dropdown-item" href="/mod3_2.html">Japanese Colonization</a></li>
+                                    <li><a class="dropdown-item" href="/mod3_3.html">American Colonization</a></li>
+                                    <!-- Add more pages as needed -->
+                                </ul>
+                            </li>
+                            <li
+                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home nav-item nav-item-32738">
+                                <a href="/mod4.html" class="nav-link ">Module 4</a>
+                            </li>
+                            <li
+                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home nav-item nav-item-32738">
+                                <a href="/about.html" class="nav-link ">About Us</a>
+                            </li>
+                        </ul> <!-- /lc_nav_menu -->
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
-
+        </nav>
+    </header>
     <!-- Header -->
 
     <!-- Hero -->
-
-    <div class="d-flex min-vh-100" lc-helper="background"
-        style="background:url('assets/hero_image2.jpg')  center / cover no-repeat; background-color:#444; background-blend-mode: overlay;">
-        <div class="align-self-center text-center text-light col-md-8 offset-md-2">
-            <div class="lc-block mb-4">
-                <div editable="rich">
-                    <h1 class="display-1 fw-bolder">Discover</h1>
+    <main class="mt-5">
+        <div class="d-flex min-vh-100" lc-helper="background"
+            style="background:url('assets/hero_image2.jpg')  center / cover no-repeat; background-color:#444; background-blend-mode: overlay;">
+            <div class="align-self-center text-center text-light col-md-8 offset-md-2">
+                <div class="lc-block mb-4">
+                    <div editable="rich">
+                        <h1 class="display-1 fw-bolder">Discover</h1>
+                    </div>
                 </div>
-            </div>
 
-            <div class="lc-block">
-                <div editable="rich">
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin faucibus porttitor
-                        dui.</p>
-
-                    <p class="lead">Sim in vestibulum metus pulvinar sit amet.
-
-                    </p>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Hero -->
-
-    <!-- Left Text, Right Image -->
-
-    <div class="container">
-        <div class="row flex-lg-row-reverse align-items-center">
-            <div class="col-lg-6">
-                <div class="lc-block">
-                    <img class="img-fluid"
-                        src="https://images.unsplash.com/7/salzburg-x.jpg?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;h=768&amp;fit=crop&amp;ixid=eyJhcHBfaWQiOjM3ODR9"
-                        loading="lazy" width="900" height="600">
-                </div>
-            </div>
-            <div class="col-lg-6">
                 <div class="lc-block">
                     <div editable="rich">
-                        <h1>Your Title goes here</h1>
-                        <p class="lead">Lorem ipsum dolor sit amet Neque porro quisquam est qui dolorem Lorem int ipsum
-                            dolor sit amet when an unknown printer took a galley of type. Vivamus id tempor felis. Cras
-                            sagittis mi sit amet malesuada mollis. Mauris porroinit consectetur cursus tortor vel
-                            interdum.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                        <h3>History. Culture. Economy. Politics.</h3>
 
-    <!-- Left Text, Right Image -->
+                        <h4>IN A NEW PERSPECTIVE.
 
-    <!-- Alternate with Bullet Points -->
-
-    <div class="container">
-        <div class="row mb-4 align-items-center">
-            <div class="col-lg-6 mb-4 mb-lg-0">
-                <div class="lc-block text-center">
-                    <img class="img-fluid " src="https://cdn.livecanvas.com/media/svg/isometric/app_development_SVG.svg"
-                        width="400" height="400" loading="lazy">
-                </div><!-- /lc-block -->
-            </div><!-- /col -->
-            <div class="col-lg-6 p-lg-6">
-                <div class="lc-block mb-5">
-                    <div editable="rich">
-
-                        <h2 class="display-6 fw-bold">Boost your Creativity</h2>
-
-                        <p class="lead"><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a lacus
-                            est. Etiam diam metus.</p>
-                    </div>
-                </div><!-- /lc-block -->
-                <!-- /lc-block -->
-                <div class="lc-block">
-                    <div class="d-inline-flex">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
-                                class="text-primary" viewBox="0 0 16 16" lc-helper="svg-icon">
-                                <path
-                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z">
-                                </path>
-                            </svg>
-                        </div>
-
-                        <div class="ms-3 align-self-center" editable="rich">
-                            <p>Lorem ipsum dolor sit amet</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="lc-block">
-                    <div class="d-inline-flex">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
-                                class="text-primary" viewBox="0 0 16 16" lc-helper="svg-icon">
-                                <path
-                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z">
-                                </path>
-                            </svg>
-                        </div>
-
-                        <div class="ms-3 align-self-center" editable="rich">
-                            <p>Consectetur adipiscing elit.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="lc-block">
-                    <div class="d-inline-flex">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
-                                class="text-primary" viewBox="0 0 16 16" lc-helper="svg-icon">
-                                <path
-                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z">
-                                </path>
-                            </svg>
-                        </div>
-
-                        <div class="ms-3 align-self-center" editable="rich">
-                            <p>Aenean vel nisi in ipsum congue</p>
-                        </div>
-                    </div>
-                </div><!-- /lc-block -->
-            </div><!-- /col -->
-        </div>
-        <div class="row mb-4 align-items-center">
-            <div class="col-lg-6 mb-4 mb-lg-0 order-lg-1">
-                <div class="lc-block text-center"><img class="img-fluid"
-                        src="https://cdn.livecanvas.com/media/svg/isometric/Startup_SVG.svg" width="400" height="400"
-                        loading="lazy"></div><!-- /lc-block -->
-            </div><!-- /col -->
-            <div class="col-lg-6 p-lg-6">
-                <div class="lc-block mb-5">
-                    <div editable="rich">
-
-                        <h2 class="display-6 fw-bold">Increase your Sales</h2>
-
-                        <p class="lead"><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a lacus
-                            est. Etiam diam metus.</p>
-                    </div>
-                </div><!-- /lc-block -->
-                <!-- /lc-block -->
-                <div class="lc-block">
-                    <div class="d-inline-flex">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
-                                class="text-primary" viewBox="0 0 16 16" lc-helper="svg-icon">
-                                <path
-                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z">
-                                </path>
-                            </svg>
-                        </div>
-
-                        <div class="ms-3 align-self-center" editable="rich">
-                            <p>Lorem ipsum dolor sit amet</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="lc-block">
-                    <div class="d-inline-flex">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
-                                class="text-primary" viewBox="0 0 16 16" lc-helper="svg-icon">
-                                <path
-                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z">
-                                </path>
-                            </svg>
-                        </div>
-
-                        <div class="ms-3 align-self-center" editable="rich">
-                            <p>Consectetur adipiscing elit.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="lc-block">
-                    <div class="d-inline-flex">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
-                                class="text-primary" viewBox="0 0 16 16" lc-helper="svg-icon">
-                                <path
-                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z">
-                                </path>
-                            </svg>
-                        </div>
-
-                        <div class="ms-3 align-self-center" editable="rich">
-                            <p>Aenean vel nisi in ipsum congue</p>
-                        </div>
-                    </div>
-                </div><!-- /lc-block -->
-            </div><!-- /col -->
-        </div>
-
-    </div>
-
-    <!-- Alternate with Bullet Points -->
-
-    <!-- Left Header, Right Text -->
-
-    <div class="container py-5">
-        <div class="row">
-            <div class="col-md-4 align-self-center">
-                <div class="lc-block border-top py-4" style="letter-spacing:10px">
-                    <div editable="rich">
-                        <h2><strong>OUR STORY</strong></h2>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="lc-block">
-                    <div editable="rich">
-
-                        <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin faucibus porttitor
-                                dui, in vestibulum metus pulvinar sit amet. Phasellus finibus fermentum eros quis
-                                maximus. Aenean feugiat elit id quam ornare, in iaculis nunc tincidunt. Nullam
-                                pellentesque ante sit amet ipsum pulvinar, ac accumsan metus pulvinar.&nbsp;</strong>
-                        </p>
-
-
-                    </div>
-                </div>
-                <div class="lc-block">
-                    <div editable="rich">
-
-                        <p>Mauris sollicitudin, ante quis suscipit molestie, est tellus semper nunc, quis porttitor
-                            tellus tortor et orci. Quisque egestas gravida eros et tristique. Praesent arcu turpis,
-                            rhoncus at nunc ut, ornare ultrices purus. Nullam fermentum eros eget sapien dignissim
-                            eleifend. Maecenas sodales, neque vestibulum aliquam varius, elit turpis tincidunt enim, eu
-                            pellentesque leo ante sit amet lectus.</p>
-
-
-                    </div>
-                </div>
-                <div class="lc-block">
-                    <div editable="rich">
-
-                        <p><em>Pellentesque eu dolor in enim efficitur dapibus id quis nisi. Quisque interdum bibendum
-                                vulputate. Nunc dui lacus, ultrices id gravida tempor, sollicitudin dapibus nisl.
-                                Vivamus dictum quam in purus commodo molestie. Mauris ultricies tortor urna. Praesent
-                                non aliquet lectus. Sed eget massa mauris. Vestibulum euismod cursus tortor, et aliquet
-                                orci facilisis eu. Cras ultricies luctus dolor quis laoreet. Suspendisse nisi massa,
-                                feugiat in dignissim sed, fermentum sed nibh.</em></p>
-
+                        </h4>
 
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Left Header, Right Text -->
+        <!-- Hero -->
 
-    <!-- Alternation -->
+        <div class="container py-4 py-lg-6">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="lc-block px-4">
+                        <!--  If you want to remove px-4 please add overflow-hidden class to the section -->
+                        <div class="position-relative">
+                            <div class="lc-block position-absolute top-0 end-0 w-100 h-100 bg-dark mt-4 me-4">
+                            </div>
 
-    <div class="container-fluid p-0 overflow-hidden">
-        <div class="row flex-lg-row-reverse g-0 align-items-center">
-            <div class="col-lg-6">
-                <div class="lc-block">
-                    <img class="w-100"
-                        src="https://images.unsplash.com/photo-1428550590922-34c77f716ad4?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8Mnx8YmxhY2slMjBhbmQlMjB3aGl0ZXxlbnwwfDB8fHwxNzAzMDc0MzIzfDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=768"
-                        srcset="" sizes="" width="" height="" alt="Photo by Jeremy Ricketts" loading="lazy">
+                            <img class="position-relative img-fluid"
+                                src="/assets/home1.png"
+                                sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
+                                alt="Photo by Spacejoy" loading="lazy">
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="lc-block p-3">
-                    <div editable="rich">
-                        <h1>Your Title goes here</h1>
-                        <p class="lead">Lorem ipsum dolor sit amet Neque porro quisquam est qui dolorem Lorem int ipsum
-                            dolor sit amet when an unknown printer took a galley of type. Vivamus id tempor felis. Cras
-                            sagittis mi sit amet malesuada mollis. Mauris porroinit consectetur cursus tortor vel
-                            interdum.</p>
+                <div class="col-lg-6 ">
+                    <div class="lc-block mb-4">
+                        <div editable="rich">
+
+                            <h2 class="fw-bold display-5">History.</h2>
+                        </div>
+                    </div>
+                    <div class="lc-block mb-5">
+                        <div editable="rich">
+
+
+                            <p class="lead text-muted">History, the study of past events, serves as a record of human
+                                experience and a testament to the complexities of our collective journey. It's a branch
+                                of knowledge that delves into societies, cultures, and individuals across time, guiding
+                                our future through lessons of the past.</p>
+                        </div>
+                    </div>
+
+                    <div class="lc-block d-sm-flex align-items-center mb-4 overflow-hidden position-relative">
+                        <div class="d-inline-flex">
+                            <div>
+                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg" lc-helper="svg-icon" class="text-success">
+                                    <path fill-rule="evenodd"
+                                        d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z">
+                                    </path>
+                                    <path fill-rule="evenodd"
+                                        d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z">
+                                    </path>
+                                </svg>
+                            </div>
+
+                            <div class="ms-3 align-self-center" editable="rich">
+                                <p>The Study of Past Events</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lc-block d-sm-flex align-items-center mb-4">
+                        <div class="d-inline-flex">
+                            <div>
+                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg" lc-helper="svg-icon" class="text-success">
+                                    <path fill-rule="evenodd"
+                                        d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z">
+                                    </path>
+                                    <path fill-rule="evenodd"
+                                        d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z">
+                                    </path>
+                                </svg>
+                            </div>
+
+                            <div class="ms-3 align-self-center" editable="rich">
+                                <p>A Record of Past Events</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lc-block d-sm-flex align-items-center mb-4">
+                        <div class="d-inline-flex">
+                            <div>
+                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg" lc-helper="svg-icon" class="text-success">
+                                    <path fill-rule="evenodd"
+                                        d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z">
+                                    </path>
+                                    <path fill-rule="evenodd"
+                                        d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z">
+                                    </path>
+                                </svg>
+                            </div>
+
+                            <div class="ms-3 align-self-center" editable="rich">
+                                <p>A Branch of Knowledge</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="row g-0 align-items-center">
-            <div class="col-lg-6">
-                <div class="lc-block">
-                    <img class="w-100"
-                        src="https://images.unsplash.com/photo-1523572989266-8239d24ebb68?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8M3x8YmxhY2slMjBhbmQlMjB3aGl0ZXxlbnwwfDB8fHwxNzAzMDc0MzIzfDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=768"
-                        srcset="" sizes="" width="" height="" alt="Photo by Photographer Frederik Trovatten"
-                        loading="lazy">
+        <hr class="my-5" />
+
+        <style>
+            .about-img-shape {
+                margin: 30px;
+                z-index: 1
+            }
+
+            .about-img-shape::before {
+                position: absolute;
+                left: -31px;
+                top: -30px;
+                width: 80%;
+                height: 90%;
+                z-index: -1;
+                content: '';
+                background-color: var(--bs-dark);
+                transition: .5s;
+
+            }
+
+            .about-img-shape:after {
+                position: absolute;
+                right: -31px;
+                bottom: -30px;
+                width: 80%;
+                height: 90%;
+                z-index: -1;
+                content: '';
+                background-color: var(--bs-dark);
+                transition: .5s;
+            }
+        </style>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="lc-block">
+                        <span editable="inline" class="small mt-4 d-block">CULTURE</span>
+                        <h2 editable="inline" class="display-2 mb-0"><b>Ink and Steel</b></h2>
+                    </div><!-- /lc-block -->
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="lc-block p-3">
-                    <div editable="rich">
-                        <h1>Your Title goes here</h1>
-                        <p class="lead">Lorem ipsum dolor sit amet Neque porro quisquam est qui dolorem Lorem int ipsum
-                            dolor sit amet when an unknown printer took a galley of type. Vivamus id tempor felis. Cras
-                            sagittis mi sit amet malesuada mollis. Mauris porroinit consectetur cursus tortor vel
-                            interdum.</p>
+
+            <div class="container py-5">
+
+                <div class="row m-4">
+                    <div class="col-lg-5 align-self-center">
+                        <div class="lc-block about-img-shape position-relative"> <img class="img-fluid"
+                                src="/assets/home2.png"
+                                alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 offset-lg-1 my-2 align-self-center">
+                        <div class="lc-block">
+                            <div editable="rich">
+                                <h2>Body Piercing<br></h2>
+                                <p>Dive into the world of pre-colonial body piercing, where metal meets flesh in an
+                                    artful union.
+                                    Explore the
+                                    intricate patterns of piercings that adorn bodies like works of living art.</p>
+                            </div>
+                        </div>
+                        <!-- /lc-block -->
+                    </div>
+                </div>
+                <div class="row m-4">
+                    <div class="col-lg-6 offset-lg-1 my-2 align-self-center">
+                        <div class="lc-block">
+                            <div editable="rich">
+                                <h2>Tattooing</h2>
+                                <p>Embark on a journey into the world of ink and creativity, where skin becomes a canvas
+                                    for stories untold and emotions expressed. In the realm of pre-colonial tattooing,
+                                    artists wield
+                                    their needles like brushes, turning visions into vibrant realities etched beneath
+                                    the surface. </p>
+                            </div>
+                        </div>
+                        <!-- /lc-block -->
+                    </div>
+                    <div class="col-lg-5 align-self-center">
+                        <div class="lc-block about-img-shape position-relative"> <img class="img-fluid"
+                                src="/assets/home3.png"
+                                alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="container">
+            <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+                <div class="col">
+                    <div class="lc-block card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
+                        lc-helper="background"
+                        style="background-image: url('/assets/home4.png'); background-size:cover">
+                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                            <div class="lc-block pt-5 mt-5 mb-4">
+                                <div editable="rich">
+                                    <h2 class="display-6 lh-1 fw-bold">Spanish Colonization</h2>
+                                </div>
+                            </div>
+                            <ul class="lc-block d-flex list-unstyled mt-auto ms-auto"><a
+                                    class="btn btn-link btn-sm text-white " href="/mod3_1.html" role="button">Read
+                                    more</a></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="lc-block card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
+                        lc-helper="background"
+                        style="background:url(/assets/home6.png)  center / cover no-repeat;">
+                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                            <div class="lc-block pt-5 mt-5 mb-4">
+                                <div editable="rich">
+                                    <h2 class="display-6 lh-1 fw-bold">Japanese Colonization
+                                    </h2>
+                                </div>
+                            </div>
+                            <ul class="lc-block d-flex list-unstyled mt-auto ms-auto"><a
+                                    class="btn btn-link btn-sm text-white " href="#" role="button">Read more</a></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="lc-block card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
+                        lc-helper="background"
+                        style="background:url(/assets/home5.png)  center / cover no-repeat;">
+                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                            <div class="lc-block pt-5 mt-5 mb-4">
+                                <div editable="rich">
+                                    <h2 class="display-6 lh-1 fw-bold">American Colonization</h2>
+                                </div>
+                            </div>
+                            <ul class="lc-block d-flex list-unstyled mt-auto ms-auto"><a
+                                    class="btn btn-link btn-sm text-white " href="#" role="button">Read more</a></ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Alternation -->
-
-    <!-- Cards Carousel with Swiper JS -->
-
-    <!-- lazily load the Swiper CSS file -->
-    <link rel="preload" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" as="style"
-        onload="this.onload=null;this.rel='stylesheet'">
-
-    <!-- lazily load the Swiper JS file -->
-    <script defer="defer" src="https://unpkg.com/swiper@8/swiper-bundle.min.js"
-        onload="initializeSwiperRANDOMID();"></script>
-
-    <!-- lc-needs-hard-refresh -->
-
-    <script>
-        function initializeSwiperRANDOMID() {
-            const swiper = new Swiper(".mySwiper-RANDOMID", {
-                slidesPerView: 1,
-                grabCursor: true,
-                spaceBetween: 30,
-
-                pagination: {
-                    el: ".swiper-pagination",
-                    dynamicBullets: true,
-                },
-                breakpoints: {
-                    768: {
-                        slidesPerView: 2,
-                    },
-                    992: {
-                        slidesPerView: 3,
-                    },
-                },
-            });
-        }
-    </script>
-
-    <style>
-        .mySwiper-RANDOMID .card {
-            max-width: 21rem
-        }
-    </style>
-
-    <div class="container py-6"><!-- Slider main container -->
-        <div class="swiper mySwiper-RANDOMID">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper"><!-- Slides -->
-                <div class="swiper-slide h-100">
-                    <div class="card shadow mx-auto">
-                        <div class="card-body">
-                            <div class="lc-block">
-                                <img class="img-fluid"
-                                    src="https://images.unsplash.com/photo-1660861378355-d194175e4905?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8Mnx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0MzUxOTV8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080"
-                                    srcset="" sizes="" width="" height="" alt="Photo by Marla Gottschalk"
-                                    loading="lazy">
-                            </div>
-                            <div class="card-body">
-                                <div class="lc-block mb-3">
-                                    <div editable="rich">
-
-                                        <h2 class="h5">Module 1</h2>
-
-                                        <p>Some quick example text to build on the card title and make up the bulk of
-                                            the card's content..</p>
-                                    </div>
-                                </div>
-                                <div class="lc-block">
-                                    <a class="btn btn-primary" href="#" role="button">Button</a>
-                                </div>
 
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide h-100">
-                    <div class="card shadow mx-auto">
-                        <div class="card-body">
-                            <div class="lc-block">
-                                <img class="img-fluid"
-                                    src="https://images.unsplash.com/photo-1617886903355-9354bb57b5d4?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8NHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080"
-                                    srcset="https://images.unsplash.com/photo-1617886903355-9354bb57b5d4?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8NHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1617886903355-9354bb57b5d4??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8NHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1617886903355-9354bb57b5d4??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8NHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1617886903355-9354bb57b5d4??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8NHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1617886903355-9354bb57b5d4??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8NHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1024 1024w"
-                                    sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
-                                    alt="Photo by Jon Tyson" loading="lazy">
-                            </div>
-                            <div class="card-body">
-                                <div class="lc-block mb-3">
-                                    <div editable="rich">
-
-                                        <h2 class="h5">Module 2</h2>
-
-                                        <p>Some quick example text to build on the card title and make up the bulk of
-                                            the card's content..</p>
-                                    </div>
-                                </div>
-                                <div class="lc-block">
-                                    <a class="btn btn-primary" href="#" role="button">Button</a>
-                                </div>
 
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide h-100">
-                    <div class="card shadow mx-auto">
-                        <div class="card-body">
-                            <div class="lc-block">
-                                <img class="img-fluid"
-                                    src="https://images.unsplash.com/photo-1606685544086-ce4ab1b91c21?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080"
-                                    srcset="https://images.unsplash.com/photo-1606685544086-ce4ab1b91c21?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1606685544086-ce4ab1b91c21??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1606685544086-ce4ab1b91c21??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1606685544086-ce4ab1b91c21??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1606685544086-ce4ab1b91c21??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OHx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1024 1024w"
-                                    sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
-                                    alt="Photo by Vianney CAHEN" loading="lazy">
-                            </div>
-                            <div class="card-body">
-                                <div class="lc-block mb-3">
-                                    <div editable="rich">
-
-                                        <h2 class="h5">Module 3</h2>
-
-                                        <p>Some quick example text to build on the card title and make up the bulk of
-                                            the card's content..</p>
-                                    </div>
-                                </div>
-                                <div class="lc-block">
-                                    <a class="btn btn-primary" href="#" role="button">Button</a>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide h-100">
-                    <div class="card shadow mx-auto">
-                        <div class="card-body">
-                            <div class="lc-block">
-                                <img class="img-fluid"
-                                    src="https://images.unsplash.com/photo-1597489276008-79951d6be8bb?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8N3x8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080"
-                                    srcset="https://images.unsplash.com/photo-1597489276008-79951d6be8bb?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8N3x8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1597489276008-79951d6be8bb??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8N3x8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1597489276008-79951d6be8bb??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8N3x8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1597489276008-79951d6be8bb??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8N3x8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1597489276008-79951d6be8bb??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8N3x8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1024 1024w"
-                                    sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
-                                    alt="Photo by Cherry Lin" loading="lazy">
-                            </div>
-                            <div class="card-body">
-                                <div class="lc-block mb-3">
-                                    <div editable="rich">
-
-                                        <h2 class="h5">Module 4</h2>
-
-                                        <p>Some quick example text to build on the card title and make up the bulk of
-                                            the card's content..</p>
-                                    </div>
-                                </div>
-                                <div class="lc-block">
-                                    <a class="btn btn-primary" href="#" role="button">Button</a>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide h-100">
-                    <div class="card shadow mx-auto">
-                        <div class="card-body">
-                            <div class="lc-block">
-                                <img class="img-fluid"
-                                    src="https://images.unsplash.com/photo-1594398901592-4f07a2e0b5f1?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OXx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080"
-                                    srcset="https://images.unsplash.com/photo-1594398901592-4f07a2e0b5f1?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OXx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1594398901592-4f07a2e0b5f1??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OXx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1594398901592-4f07a2e0b5f1??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OXx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1594398901592-4f07a2e0b5f1??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OXx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1594398901592-4f07a2e0b5f1??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=M3wzNzg0fDB8MXxzZWFyY2h8OXx8ZnVybml0dXJlJTIwcmVkfGVufDB8Mnx8fDE2OTE0ODcxMjF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1024 1024w"
-                                    sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
-                                    alt="Photo by Grant Durr" loading="lazy">
-                            </div>
-                            <div class="card-body">
-                                <div class="lc-block mb-3">
-                                    <div editable="rich">
-
-                                        <h2 class="h5">About Us</h2>
-
-                                        <p>Some quick example text to build on the card title and make up the bulk of
-                                            the card's content..</p>
-                                    </div>
-                                </div>
-                                <div class="lc-block">
-                                    <a class="btn btn-primary" href="#" role="button">Button</a>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination position-relative pt-5 bottom-0"></div>
-        </div>
-    </div>
-
-    <!-- Cards Carousel with Swiper JS -->
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -603,6 +439,35 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
+    <script>
+        let lastScroll = 0;
+
+        window.addEventListener("scroll", () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll === 0) {
+                document.querySelector(".navbar").classList.add("navbar-scrolled");
+                document.querySelector(".navbar").classList.remove("navbar-hidden");
+                return;
+            }
+
+            if (currentScroll > lastScroll) {
+                document.querySelector(".navbar").classList.add("navbar-hidden");
+            } else {
+                document.querySelector(".navbar").classList.remove("navbar-hidden");
+            }
+            lastScroll = currentScroll;
+        });
+
+        // Check initial scroll position on page load
+        window.addEventListener("load", () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll === 0) {
+                document.querySelector(".navbar").classList.add("navbar-scrolled");
+                document.querySelector(".navbar").classList.remove("navbar-hidden");
+            }
+        });
+    </script>
+
 </body>
 
 </html>
